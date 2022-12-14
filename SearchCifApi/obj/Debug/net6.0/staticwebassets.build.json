@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "kPApLVHMKwpkl51z6AfzzcDGCqd22sXp+IOmUH2cO1g=",
+  "Source": "SearchCifApi",
+  "BasePath": "_content/SearchCifApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
