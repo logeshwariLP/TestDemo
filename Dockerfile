@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["/GenerateCifApi.csproj", "GenerateCifApi/"]
-RUN dotnet restore "GenerateCifApi/GenerateCifApi.csproj"
+COPY ["SearchCifApi/SearchCifApi.csproj", "SearchCifApi/"]
+RUN dotnet restore "SearchCifApi/SearchCifApi.csproj"
 COPY . .
-WORKDIR "/src/GenerateCifApi"
-RUN dotnet build "GenerateCifApi.csproj" -c Release -o /app/build
+WORKDIR "/src/SearchCifApi"
+RUN dotnet build "SearchCifApi.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "GenerateCifApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "SearchCifApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "GenerateCifApi.dll"]
+ENTRYPOINT ["dotnet", "SearchCifApi.dll"]
