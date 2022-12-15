@@ -7,8 +7,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["SearchCifApi/SearchCifApi.csproj", "SearchCifApi/"]
-RUN dotnet restore "SearchCifApi/SearchCifApi.csproj"
+COPY ["SearchCifApi.csproj", "SearchCifApi/"]
+RUN dotnet restore "SearchCifApi.csproj"
 COPY . .
 WORKDIR "/src/SearchCifApi"
 RUN dotnet build "SearchCifApi.csproj" -c Release -o /app/build
