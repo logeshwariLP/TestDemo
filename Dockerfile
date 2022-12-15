@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["GenerateCifApi/GenerateCifApi.csproj", "GenerateCifApi/"]
+COPY ["/GenerateCifApi.csproj", "GenerateCifApi/"]
 RUN dotnet restore "GenerateCifApi/GenerateCifApi.csproj"
 COPY . .
 WORKDIR "/src/GenerateCifApi"
